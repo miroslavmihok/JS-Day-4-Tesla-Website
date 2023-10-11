@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./scss/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <nav>
+          <div class="header__logo">
+            <a href="index.html">
+              <img src="./assets/logo.png" alt="logo" />
+            </a>
+          </div>
+          <div class="header__links">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="header__search">
+            <input type="text" />
+            <button type="submit">Search</button>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <h1>Our Cars</h1>
+        <!-- THREE CAR CATEGORIES -->
+        <div class="wrapper__cars">
+          <div class="wrapper__car">
+            <div
+              class="wrapper__image"
+              style="
+                background: url('./assets/ModelS_1.jpg') no-repeat center/cover;
+              "
+            ></div>
+            <div class="wrapper__description">
+              <h3>Model S</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <button class="button__car">Show more</button>
+            </div>
+          </div>
+        </div>
+        <!-- MODAL FOR CHOSEN CAR -->
+        <div class="modal-overlay">
+          <div class="modal-container">
+            <div class="modal_left">
+              <button class="btn-left">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="btn-right">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="modal_left_container">
+                <div class="modal_slide">
+                  <img src="./assets/ModelS_1.jpg" alt="ModelS" id="image1" />
+                </div>
+              </div>
+            </div>
+            <div class="modal_right">
+              <div class="information">
+                <h1 id="car__name">Model S</h1>
+                <p id="car__delivery">
+                  Voraussichtliche Auslieferung: Okt – Dez 2023
+                </p>
+                <p id="car__description">
+                  Das Tesla Model S ist eine batterieelektrisch angetriebene
+                  Oberklasse-Limousine des US-amerikanischen Herstellers Tesla.
+                </p>
+              </div>
+              <div class="statistics">
+                <div class="statistics__column">
+                  <p><span id="car__reach">643</span>km</p>
+                  <p class="statistics__category">Maximale Geschwindigkeit</p>
+                </div>
+                <div class="statistics__column">
+                  <p><span id="car__zeroToH">3.2</span>Sek.</p>
+                  <p class="statistics__category">0 - 100km/h</p>
+                </div>
+              </div>
+              <div class="price">
+                <p><span id="price__car__name">Model S</span></p>
+                <p class="car__price">$ <span id="car__price">94.990</span></p>
+              </div>
+              <button>Product Information</button>
+            </div>
+            <button class="close-btn">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <span
+          >&copy Copyright: <a href="#" id="footer_CFlink">CodeFactory</a></span
+        >
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

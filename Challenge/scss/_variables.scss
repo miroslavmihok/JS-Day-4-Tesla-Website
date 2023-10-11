@@ -1,0 +1,89 @@
+// imports
+@import url("https://fonts.googleapis.com/css2?family=Galada&family=Lato&family=Montserrat&family=Poppins&family=Roboto&display=swap");
+
+@font-face {
+  font-family: "Gotham-Book";
+  src: url("../fonts/Gotham-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Gotham-Medium";
+  src: url("../fonts/Gotham-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Gotham-Light";
+  src: url("../fonts/Gotham-Light.otf") format("opentype");
+}
+
+// Colors
+
+$--clr-white: white;
+$--clr-lightwhite-transparent: linear-gradient(
+  to bottom,
+  rgba(255, 255, 255, 1) 0%,
+  rgba(255, 255, 255, 1) 60%,
+  rgba(255, 255, 255, 0.6) 100%
+);
+$--clr-lightgrey: rgba(244, 244, 244, 0.65);
+$--clr-darker-lightgrey: rgba(205, 205, 205, 0.65);
+$--clr-mediumgray: rgba(97, 100, 107, 0.8);
+$--clr-darkgrey: rgba(23, 26, 32, 0.8);
+$--clr-black: black;
+
+// Fonts
+
+$--font-primary-1: "Gotham-Book";
+$--font-primary-2: "Gotham-Medium";
+$--font-secondary-1: "Gotham-Light";
+
+// Sizes
+
+// Shadows
+
+// Mixins
+
+@mixin flex-align() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin dark-button() {
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: $--clr-darkgrey;
+  color: $--clr-white;
+  font-family: "Gotham-Book";
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: $--clr-mediumgray;
+  }
+  cursor: pointer;
+}
+
+@mixin light-button() {
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: $--clr-lightgrey;
+  color: $--clr-darkgrey;
+  font-family: "Gotham-Book";
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: $--clr-darker-lightgrey;
+  }
+  cursor: pointer;
+}
+
+@mixin caroussel-button() {
+  position: absolute;
+  width: 1.9rem;
+  height: 1.9rem;
+  top: 50%;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}

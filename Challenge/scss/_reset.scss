@@ -1,0 +1,49 @@
+@import "variables";
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body:not(i) {
+    font-family: $--font-primary-1;
+    color: $--clr-black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: $--clr-black;
+}
+
+img {
+    display: block;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+    @include flex-align();
+    justify-content: center;
+    flex-flow: column;
+    background: url("./assets/bg1.png") no-repeat center/cover;
+    background-blend-mode: darken;
+    transition: background 0.5s ease-in-out;
+}
+
