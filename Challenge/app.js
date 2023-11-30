@@ -67,7 +67,7 @@ window.document.addEventListener("DOMContentLoaded", function () {
 // BACKGROUND IMAGE DECLARATION and TIMER for IMAGE CHANGE
 
 const imageSrcs = ["bg1.png", "bg2.png", "bg3.png"];
-const base = "/Challenge/assets/";
+const base = "./assets/";
 
 const preloadedImages = [];
 
