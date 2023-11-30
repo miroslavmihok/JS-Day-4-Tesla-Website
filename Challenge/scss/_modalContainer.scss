@@ -57,6 +57,14 @@
   &:hover .btn-out-right {
     opacity: 0;
   }
+  @include phone {
+    width: 100%;
+    flex: 1;
+  }
+  @include small-tablet {
+    width: 100%;
+    flex: 1;
+  }
 
   .btn-in-left,
   .btn-in-right {
@@ -128,11 +136,18 @@
       //   &:nth-child(5) {
       //     left: 400%;
       //   }
+      @include phone {
+        display: block;
+      }
+      @include small-tablet {
+        display: block;
+      }
 
-        img {
-          width: 100%;
-          object-fit: contain;
-        }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     // .modal_slide {
@@ -148,6 +163,14 @@
   justify-content: flex-start;
   gap: 1rem;
   padding: 8rem 1rem 1rem 1rem;
+  @include phone {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+  @include small-tablet {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+  }
 
   .information {
     width: 75%;

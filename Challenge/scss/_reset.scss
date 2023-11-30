@@ -10,17 +10,17 @@
 
 html,
 body {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 400vh;
 }
 
 body:not(i) {
-    font-family: $--font-primary-1;
-    color: $--clr-black;
+  font-family: $--font-primary-1;
+  color: $--clr-black;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 a,
@@ -28,22 +28,19 @@ a:visited,
 a:hover,
 a:focus,
 a:active {
-    text-decoration: none;
-    color: $--clr-black;
+  text-decoration: none;
 }
 
 img {
-    display: block;
+  display: block;
 }
 
 #container {
-    height: 100%;
-    width: 100%;
-    @include flex-align();
-    justify-content: center;
-    flex-flow: column;
-    background: url("./assets/bg1.png") no-repeat center/cover;
-    background-blend-mode: darken;
-    transition: background 0.5s ease-in-out;
+  height: 100vh;
+  width: 100%;
+  @include flex-align();
+  justify-content: center;
+  flex-flow: column;
+  -webkit-transition: background-image 0.5s ease-in-out;
+  transition: background-image 0.5s ease-in-out;
 }
-

@@ -1,5 +1,5 @@
 // imports
-@import url("https://fonts.googleapis.com/css2?family=Galada&family=Lato&family=Montserrat&family=Poppins&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Galada&family=Montserrat&family=Poppins&family=Roboto&display=swap");
 
 @font-face {
   font-family: "Gotham-Book";
@@ -28,7 +28,7 @@ $--clr-lightwhite-transparent: linear-gradient(
 $--clr-lightgrey: rgba(244, 244, 244, 0.65);
 $--clr-darker-lightgrey: rgba(205, 205, 205, 0.65);
 $--clr-mediumgray: rgba(97, 100, 107, 0.8);
-$--clr-darkgrey: rgba(23, 26, 32, 0.8);
+$--clr-darkgrey: rgba(23, 26, 32);
 $--clr-black: black;
 
 // Fonts
@@ -86,4 +86,36 @@ $--font-secondary-1: "Gotham-Light";
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
+}
+
+// media variables
+
+$phone-width: 640px;
+$small_tablet-width: 768px;
+$large_tablet-width: 1024px;
+$small_desktop-width: 1280px;
+$large_desktop-width: 1536px;
+
+@mixin phone {
+  @media (max-width: #{$small_tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-tablet {
+  @media (min-width: #{$small_tablet-width}) and (max-width: #{$large_tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$large_tablet-width}) and (max-width: #{$large_desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin not-desktop {
+  @media (max-width: #{$large_desktop-width}) {
+    @content;
+  }
 }

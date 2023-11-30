@@ -2,50 +2,28 @@
 
 main {
   @include flex-align();
+  flex-flow: column;
   justify-content: center;
   flex-flow: column;
   flex: 1;
 
-  .wrapper__cars {
-    display: flex;
-    height: 80%;
-    gap: 2rem;
-    margin-top: 2rem;
+  .main_container {
+    @include flex-align;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 70%;
 
-    .wrapper__car {
-      display: flex;
-      flex-flow: column;
-      height: 100%;
-      width: 25rem;
-      padding: 1rem;
-      background: $--clr-lightwhite-transparent;
-      border-radius: 0.5rem;
-      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2), 3px 0px 5px rgba(0, 0, 0, 0.2);
-
-      .wrapper__image {
-        min-height: 60%;
-        min-width: 75%;
-        flex: 0;
+    h1 {
+      font-size: 2.4rem;
+      text-align: center;
+      @include phone {
+        font-size: 1.4rem;
       }
+    }
 
-      .wrapper__description {
-        @include flex-align();
-        flex-flow: column;
-        justify-content: space-evenly;
-        flex: 1;
-        text-align: center;
-        w h3 {
-          font-size: 1.6rem;
-        }
-
-        p {
-          font-size: 0.85rem;
-        }
-
-        .button__car {
-          @include dark-button();
-        }
-      }
+    .button__allcars {
+      @include dark-button();
+      padding: 0.5rem 1rem;
     }
   }
 
@@ -69,6 +47,12 @@ main {
       text-align: center;
       display: flex;
       position: relative;
+      @include phone {
+        flex-direction: column;
+      }
+      @include small-tablet {
+        flex-direction: column;
+      }
     }
   }
 
@@ -90,6 +74,85 @@ main {
     transition: all 0.2s linear;
     &:hover {
       transform: scale(1.2);
+    }
+  }
+}
+
+.wrapper__cars {
+  display: flex;
+  flex-flow: column;
+  min-height: 100%;
+  height: auto;
+
+  .wrapper__car {
+    display: flex;
+    min-height: 100vh;
+    min-width: 100%;
+    max-width: 100%;
+    background: linear-gradient(145deg, #ffffff, #dedbdb);
+    z-index: 1;
+    @include phone {
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 2rem;
+    }
+    @include small-tablet {
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 2rem;
+    }
+
+    .wrapper__image {
+      width: 40%;
+      min-height: 100%;
+      @include flex-align;
+      align-items: center;
+      @include phone {
+        justify-content: center;
+        width: 100%;
+        flex: 1;
+      }
+      @include small-tablet {
+        justify-content: center;
+        width: 100%;
+        flex: 1;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .wrapper__description {
+      width: 60%;
+      @include flex-align();
+      flex-flow: column;
+      justify-content: space-evenly;
+      text-align: center;
+      padding: 12rem 12rem;
+      @include phone {
+        padding: 0;
+        justify-content: space-around;
+        width: 100%;
+        flex: 1;
+      }
+      @include small-tablet {
+        padding: 0;
+        justify-content: space-around;
+        width: 100%;
+        flex: 1;
+      }
+      h2 {
+        font-size: 2.6rem;
+      }
+
+      p {
+        font-size: 0.85rem;
+      }
+
+      .button__car {
+        @include dark-button();
+      }
     }
   }
 }

@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollToPlugin);
+
 // ARRAY WITH CAR OBJECTS
 const cars = [
   {
@@ -15,6 +17,7 @@ const cars = [
       "./assets/ModelS_4.jpg",
       "./assets/ModelS_5.jpg",
     ],
+    mainImg: "./assets/ModelS_1.png",
   },
   {
     name: "Model 3",
@@ -31,6 +34,7 @@ const cars = [
       "./assets/Model3_4.jpg",
       "./assets/Model3_5.jpg",
     ],
+    mainImg: "./assets/Model3_1.png",
   },
   {
     name: "Model X",
@@ -47,6 +51,7 @@ const cars = [
       "./assets/ModelX_4.jpg",
       "./assets/ModelX_5.jpg",
     ],
+    mainImg: "./assets/ModelX_1.png",
   },
 ];
 
@@ -56,19 +61,21 @@ const sectionCars = document.querySelector(".wrapper__cars");
 
 window.document.addEventListener("DOMContentLoaded", function () {
   displayCars(cars);
+  addPagesToArray();
 });
 
 // BACKGROUND IMAGE DECLARATION and TIMER for IMAGE CHANGE
 
-let secs = 4;
 const imageSrcs = ["bg1.png", "bg2.png", "bg3.png"];
-const base = "./assets/";
+const base = "/Challenge/assets/";
 
 const preloadedImages = [];
 
-imageSrcs.forEach(function (imageSrcs) {
-  const image = new Image();
-  image.src = base + imageSrcs;
+imageSrcs.forEach(function (imageSrc) {
+  let imagePath = base + imageSrc;
+  console.log("Loading image:", imagePath);
+  let image = new Image();
+  image.src = imagePath;
   preloadedImages.push(image);
 });
 
@@ -77,29 +84,30 @@ const bgContainer = document.getElementById("container");
 let i = 0;
 
 function changePicture() {
+  bgContainer.style.background = `url(${preloadedImages[i].src}) no-repeat center/cover`;
   i++;
+
   if (i > imageSrcs.length - 1) {
     i = 0;
-  } else {
-    bgContainer.style.background = `url(${preloadedImages[i].src}) no-repeat center/cover`;
   }
 }
 changePicture();
 window.setInterval(changePicture, 8000);
-
 
 // CHECKING BUTTON CLASSLIST
 let buttonClass = "";
 
 const displayCars = (carItems) => {
   let displayCar = carItems.map((item) => {
-    return `<div class="wrapper__car">
-        <div class="wrapper__image" style="background: url(${item.images[0]}) no-repeat center/cover;">
-        </div>
+    return `<div class="wrapper__car" id="${item.category}">
         <div class="wrapper__description">
-            <h3>${item.name}</h3>
+            <h2>${item.name}</h2>
             <p>${item.description}</p>
-            <button class="button__car ${item.category}">Show more</button>
+            <button class="button__car 
+            ${item.category}">Show more</button>
+        </div>
+        <div class="wrapper__image">
+          <img src="${item.mainImg}" alt="${item.name}" />
         </div>
       </div>`;
   });
@@ -238,3 +246,52 @@ modalLeft.addEventListener("mouseout", function () {
   buttonLeft.classList.add("btn-out-left");
   buttonRight.classList.add("btn-out-right");
 });
+
+// slide animation
+const homePage = document.querySelector("#container");
+const container = document.querySelector("body");
+
+function addPagesToArray() {
+  const carPages = document.querySelectorAll(".wrapper__car");
+
+  carPages.forEach((item) => {
+    slides.push(item);
+  });
+}
+
+const slides = [homePage];
+
+let oldSlide = 0;
+let activeSlide = 0;
+
+// main function
+
+function slideAnim(e) {
+  oldSlide = activeSlide;
+
+  // user doesnt have to scroll by steps with this
+  if (gsap.isTweening(window)) {
+    return;
+  } else {
+    activeSlide = e.deltaY > 0 ? (activeSlide += 1) : (activeSlide -= 1);
+  }
+  // making sure we're not past the end or beginning slide
+  activeSlide = activeSlide < 0 ? 0 : activeSlide;
+  activeSlide =
+    activeSlide > slides.length - 1 ? slides.length - 1 : activeSlide;
+  if (oldSlide === activeSlide) {
+    return;
+  }
+  gsap.to(window, { duration: 1, scrollTo: { y: slides[activeSlide] } });
+}
+
+// OUR MODELS BUTTON
+
+const modelsBtn = document.querySelector(".button__allcars");
+
+modelsBtn.addEventListener("click", () => {
+  activeSlide = 1;
+  gsap.to(window, { duration: 1, scrollTo: { y: `.wrapper__cars` } });
+});
+
+window.addEventListener("wheel", slideAnim);

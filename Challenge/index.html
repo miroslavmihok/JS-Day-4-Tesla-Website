@@ -19,36 +19,14 @@
               <img src="./assets/logo.png" alt="logo" />
             </a>
           </div>
-          <div class="header__links">
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div class="header__search">
-            <input type="text" />
-            <button type="submit">Search</button>
-          </div>
+          <div class="header__links"></div>
+          <div class="header__search"></div>
         </nav>
       </header>
       <main>
-        <h1>Our Cars</h1>
-        <!-- THREE CAR CATEGORIES -->
-        <div class="wrapper__cars">
-          <div class="wrapper__car">
-            <div
-              class="wrapper__image"
-              style="
-                background: url('./assets/ModelS_1.jpg') no-repeat center/cover;
-              "
-            ></div>
-            <div class="wrapper__description">
-              <h3>Model S</h3>
-              <p>Lorem ipsum dolor sit amet.</p>
-              <button class="button__car">Show more</button>
-            </div>
-          </div>
+        <div class="main_container">
+          <h1>Explore the Future of Driving</h1>
+          <button class="button__allcars">Our Models</button>
         </div>
         <!-- MODAL FOR CHOSEN CAR -->
         <div class="modal-overlay">
@@ -99,12 +77,39 @@
           </div>
         </div>
       </main>
+    </div>
+    <div id="cars_container">
+      <!-- THREE CAR CATEGORIES -->
+      <div class="wrapper__cars">
+        <div class="wrapper__car">
+          <div class="wrapper__description">
+            <h2>Model S</h2>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <button class="button__car">Show more</button>
+          </div>
+          <div class="wrapper__image">
+            <img src="./assets/ModelS_1.jpg" alt="ModelS_1" />
+          </div>
+        </div>
+      </div>
       <footer>
-        <span
-          >&copy Copyright: <a href="#" id="footer_CFlink">CodeFactory</a></span
-        >
+        <ul>
+          <li>
+            <a href="">
+              <span
+                >&copy Copyright:
+                <a href="#" id="footer_CFlink">Tesla Project</a></span
+              >
+            </a>
+          </li>
+          <li><a href="#">Privacy & Legal</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Locations</a></li>
+        </ul>
       </footer>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
